@@ -1,17 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-app
+  name: todoresponse
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: todo-app
+      app: todoresponse
   template:
     metadata:
       labels:
-        app: todo-app
+        app: todoresponse
     spec:
       containers:
-        - name: hashgenerator
-          image: atteh0gm4n/todo-app
+        - name: todoresponse
+          image: atteh0gm4n/todoresponse
+          env:
+            - name: DEMO_GREEING
+              value: "Hello from the environment!"
