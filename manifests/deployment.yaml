@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: random-string
+  name: todo-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: random-string
+      app: todo-app
   template:
     metadata:
       labels:
-        app: random-string
+        app: todo-app
     spec:
       containers:
         - name: hashgenerator
-          image: atteh0gm4n/random-string
+          image: atteh0gm4n/todo-app
