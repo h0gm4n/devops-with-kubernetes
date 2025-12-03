@@ -10,3 +10,4 @@
 - [1.6](https://github.com/h0gm4n/devops-with-kubernetes/tree/1.6)
 - [1.7](https://github.com/h0gm4n/devops-with-kubernetes/tree/1.7)
 - [1.8](https://github.com/h0gm4n/devops-with-kubernetes/tree/1.8)
+- [1.9](https://github.com/h0gm4n/devops-with-kubernetes/tree/1.9)
