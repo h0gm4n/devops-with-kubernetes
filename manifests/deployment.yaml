@@ -14,19 +14,33 @@ spec:
       labels:
         app: random-string
     spec:
+      volumes:
+        - name: shared-data
+          emptyDir: {}
       containers:
-        - name: random-string
+        - name: random-generator
           image: atteh0gm4n/random-string:latest
           imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 3000
+          command: ["python", "-u", "generator.py"]
+          volumeMounts:
+            - name: shared-data
+              mountPath: /shared
           resources:
             requests:
-              cpu: "50m"
-              memory: "64Mi"
+              cpu: "25m"
+              memory: "32Mi"
             limits:
-              cpu: "200m"
-              memory: "128Mi"
+              cpu: "100m"
+              memory: "64Mi"
+        - name: random-reader
+          image: atteh0gm4n/random-string:latest
+          imagePullPolicy: IfNotPresent
+          command: ["python", "-u", "reader.py"]
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: shared-data
+              mountPath: /shared
           livenessProbe:
             httpGet:
               path: /status
